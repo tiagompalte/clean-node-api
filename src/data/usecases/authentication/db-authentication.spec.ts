@@ -134,6 +134,13 @@ describe('DbAuthentication UseCase', () => {
     expect(generateSpy).toHaveBeenCalledWith('any_id')
   })
 
+  test('Should return null if Encrypter returns null', async () => {
+    const { sut, encrypterStub } = makeSut()
+    jest.spyOn(encrypterStub, 'encrypt').mockResolvedValueOnce(null)
+    const accessToken = await sut.auth(makeFakeAuthentication())
+    expect(accessToken).toBeNull()
+  })
+
   test('Should throw if Encrypter throws', async () => {
     const { sut, encrypterStub } = makeSut()
     jest.spyOn(encrypterStub, 'encrypt').mockReturnValueOnce(Promise.reject(new Error()))
