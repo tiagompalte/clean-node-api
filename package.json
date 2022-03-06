@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/main/server.js",
-    "debug": "node --inspect=0.0.0.0:9222 --nolazy dist/main/server.js",
+    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
     "build": "rimraf dist && tsc",
     "dev": "sucrase-node src/main/server.ts",
     "docker": "npm run build && docker-compose up",
@@ -42,7 +42,6 @@
     "jest": "^26.0.1",
     "lint-staged": "^10.2.9",
     "rimraf": "^3.0.2",
-    "sucrase": "^3.15.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
@@ -52,6 +51,7 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
+    "nodemon": "^2.0.15",
     "validator": "^13.1.1"
   },
   "engines": {
