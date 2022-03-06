@@ -1,6 +1,6 @@
-FROM node:12
+FROM node:12-alpine
 
-WORKDIR /usr/src/clean-node-api
+WORKDIR /usr/src/app
 
 COPY ./package.json .
 COPY ./package-lock.json .
