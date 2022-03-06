@@ -7,6 +7,7 @@
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
     "dev": "sucrase-node src/main/server.ts",
+    "docker": "npm run build && docker-compose up",
     "check": "npx npm-check -s -u",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
@@ -53,7 +54,7 @@
     "validator": "^13.1.1"
   },
   "engines": {
-    "node": "10.x",
+    "node": "12.x",
     "npm": "6.x"
   }
 }
